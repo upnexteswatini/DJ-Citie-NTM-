@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090a0d">
+  <meta name="description" content="DJ Citie NTM — Eswatini DJ, producer and performer. Explore music, visuals, latest updates and official channels.">
+  <title>DJ Citie NTM | Official Website</title>
+
+  <!-- Photo 1 is used as both the site logo and favicon. -->
+  <link rel="icon" type="image/png" href="https://base44.app/api/apps/6aba2442d88feb02c65ff55e/files/mp/public/6aba2442d88feb02c65ff55e/b5dbbbf58_photo_portrait.png">
+  <link rel="apple-touch-icon" href="https://base44.app/api/apps/6aba2442d88feb02c65ff55e/files/mp/public/6aba2442d88feb02c65ff55e/b5dbbbf58_photo_portrait.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #090a0d;
+      --panel: #111319;
+      --panel-2: #171a22;
+      --text: #f5f5f6;
+      --muted: #a5a8b2;
+      --line: rgba(255,255,255,.11);
+      --accent: #d7ff3f;
+      --accent-2: #a8d51c;
+      --white: #fff;
+      --radius: 24px;
+      --max: 1200px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      background: var(--bg); color: var(--text); font-family: "DM Sans", sans-serif;
+      overflow-x: hidden; line-height: 1.6;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+      background: radial-gradient(ellipse at 75% 8%, rgba(215,255,63,.09), transparent 32%),
+                  radial-gradient(ellipse at 0% 55%, rgba(90,105,140,.10), transparent 35%);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; }
+    .container { width: min(var(--max), calc(100% - 44px)); margin: auto; }
+    .eyebrow {
+      color: var(--accent); text-transform: uppercase; letter-spacing: .2em;
+      font-size: .72rem; font-weight: 800; display: inline-flex; gap: 10px; align-items: center;
+    }
+    .eyebrow::before { content: ""; width: 25px; height: 1px; background: var(--accent); }
+    .section { padding: 110px 0; position: relative; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 38px; }
+    h2 { font: 800 clamp(2.1rem, 5vw, 4rem)/1.05 Manrope, sans-serif; letter-spacing: -.055em; margin-top: 14px; }
+    .section-head p { color: var(--muted); max-width: 390px; }
+    .btn {
+      display: inline-flex; justify-content: center; align-items: center; gap: 10px;
+      border-radius: 999px; padding: 14px 22px; font-weight: 800; font-size: .88rem;
+      transition: .3s ease; border: 1px solid transparent; cursor: pointer;
+    }
+    .btn-primary { background: var(--accent); color: #10120a; }
+    .btn-primary:hover { background: #e6ff80; transform: translateY(-3px); box-shadow: 0 12px 35px rgba(215,255,63,.18); }
+    .btn-ghost { border-color: var(--line); background: rgba(255,255,255,.04); color: var(--white); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+    .topbar {
+      position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 82px;
+      display: flex; align-items: center; border-bottom: 1px solid transparent;
+      transition: .35s ease; backdrop-filter: blur(0px);
+    }
+    .topbar.scrolled { background: rgba(9,10,13,.84); border-color: var(--line); backdrop-filter: blur(18px); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+    .brand { display: flex; align-items: center; gap: 12px; font: 800 1rem Manrope, sans-serif; letter-spacing: -.04em; }
+    .brand img { width: 43px; height: 43px; object-fit: cover; border-radius: 50%; border: 2px solid var(--accent); }
+    .brand span small { display: block; color: var(--muted); font: 700 .57rem "DM Sans"; letter-spacing: .2em; }
+    .navlinks { display: flex; gap: 30px; align-items: center; }
+    .navlinks a { font-size: .83rem; color: #c6c8ce; font-weight: 700; transition: .2s; }
+    .navlinks a:hover { color: var(--accent); }
+    .nav-cta { padding: 11px 17px; font-size: .78rem; }
+    .menu-toggle { display: none; background: none; border: 0; color: white; font-size: 1.7rem; cursor: pointer; }
+
+    .hero { min-height: 790px; display: flex; align-items: center; padding: 130px 0 85px; position: relative; isolation: isolate; }
+    .hero-grid { display: grid; grid-template-columns: 1.03fr .97fr; align-items: center; gap: 55px; }
+    .hero-copy { position: relative; z-index: 2; }
+    .hero h1 { font: 800 clamp(4rem, 9.5vw, 8.5rem)/.88 Manrope, sans-serif; letter-spacing: -.09em; margin: 23px 0; }
+    .hero h1 span { color: var(--accent); display: block; }
+    .hero-copy > p { color: #b6b8c0; max-width: 510px; font-size: 1.05rem; line-height: 1.85; margin-bottom: 30px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-meta { display: flex; align-items: center; gap: 18px; margin-top: 52px; color: var(--muted); font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; }
+    .hero-meta strong { color: white; font-size: .82rem; }
+    .hero-meta .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+    .hero-visual { position: relative; min-height: 570px; display: flex; align-items: center; justify-content: center; }
+    .hero-orbit { position: absolute; width: min(44vw, 520px); aspect-ratio: 1; border: 1px solid rgba(215,255,63,.2); border-radius: 50%; animation: spin 28s linear infinite; }
+    .hero-orbit::before, .hero-orbit::after { content: ""; position: absolute; border: 1px solid rgba(255,255,255,.08); border-radius: 50%; inset: 9%; }
+    .hero-orbit::after { inset: 19%; }
+    .orbit-dot { position: absolute; top: 13%; left: 16%; width: 13px; height: 13px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 25px var(--accent); }
+    .hero-photo-wrap { width: min(82%, 430px); height: 540px; position: relative; z-index: 1; border-radius: 220px 220px 28px 28px; overflow: hidden; background: #20232a; box-shadow: 0 35px 100px rgba(0,0,0,.65); transform: rotate(2deg); }
+    .hero-photo-wrap::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,.72)); }
+    .hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; transition: transform 1s ease; }
+    .hero-photo-wrap:hover .hero-photo { transform: scale(1.06); }
+    .photo-label { position: absolute; z-index: 2; bottom: 25px; left: 25px; }
+    .photo-label strong { display: block; font: 800 1.55rem Manrope; }
+    .photo-label span { color: var(--accent); font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; }
+    .floating-tag { position: absolute; z-index: 3; right: -5px; top: 16%; background: rgba(20,22,28,.9); border: 1px solid var(--line); padding: 14px 17px; border-radius: 14px; backdrop-filter: blur(12px); box-shadow: 0 15px 40px #0008; animation: float 5s ease-in-out infinite; }
+    .floating-tag b { display: block; font: 800 1rem Manrope; }
+    .floating-tag small { color: var(--muted); font-size: .67rem; }
+    .scroll-cue { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); color: #777b84; font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; display: flex; gap: 12px; align-items: center; }
+    .scroll-cue::before { content: ""; width: 34px; height: 1px; background: var(--accent); }
+
+    .ticker { overflow: hidden; border-block: 1px solid var(--line); background: #101218; padding: 17px 0; }
+    .ticker-track { display: flex; width: max-content; animation: ticker 30s linear infinite; }
+    .ticker span { color: #e9ebed; font: 800 .8rem Manrope; text-transform: uppercase; letter-spacing: .2em; padding: 0 30px; white-space: nowrap; }
+    .ticker i { color: var(--accent); font-style: normal; }
+
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; align-items: center; }
+    .about-image { height: 560px; position: relative; border-radius: var(--radius); overflow: hidden; }
+    .about-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 1s; }
+    .about-image:hover img { transform: scale(1.05); }
+    .about-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, #08090dbb, transparent 60%); }
+    .image-caption { position: absolute; z-index: 1; bottom: 25px; left: 25px; font: 800 1.4rem Manrope; }
+    .about-copy p { color: var(--muted); margin: 24px 0; line-height: 1.95; }
+    .stat-row { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--line); margin-top: 35px; padding-top: 25px; gap: 15px; }
+    .stat strong { display: block; color: var(--accent); font: 800 1.7rem Manrope; }
+    .stat span { color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; }
+
+    .music-section { background: linear-gradient(180deg, transparent, #111319 20%, #111319 80%, transparent); }
+    .music-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .music-card { min-height: 265px; border: 1px solid var(--line); background: linear-gradient(145deg, #1b1e27, #111319); border-radius: 22px; padding: 27px; display: flex; flex-direction: column; justify-content: space-between; transition: .35s; position: relative; overflow: hidden; }
+    .music-card::after { content: ""; position: absolute; width: 170px; height: 170px; border-radius: 50%; right: -75px; top: -75px; background: var(--glow, rgba(215,255,63,.12)); filter: blur(5px); transition: .4s; }
+    .music-card:hover { transform: translateY(-8px); border-color: rgba(215,255,63,.55); }
+    .music-card:hover::after { transform: scale(1.5); }
+    .platform-icon { width: 54px; height: 54px; display: grid; place-items: center; border-radius: 16px; background: rgba(255,255,255,.08); border: 1px solid var(--line); }
+    .platform-icon img { width: 29px; height: 29px; object-fit: contain; }
+    .platform-icon svg { width: 29px; height: 29px; fill: white; }
+    .music-card h3 { font: 800 1.35rem Manrope; margin-top: 30px; }
+    .music-card p { color: var(--muted); font-size: .82rem; margin-top: 5px; }
+    .card-link { margin-top: 20px; color: var(--accent); font-size: .77rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; display: flex; gap: 9px; align-items: center; }
+    .card-link span { transition: transform .2s; }
+    .music-card:hover .card-link span { transform: translate(4px,-4px); }
+
+    .channels-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .channel-card { border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.035); padding: 22px; display: flex; align-items: center; gap: 16px; transition: .3s; }
+    .channel-card:hover { background: #191d25; border-color: rgba(215,255,63,.5); transform: translateY(-5px); }
+    .channel-icon { width: 52px; height: 52px; flex: 0 0 52px; border-radius: 15px; display: grid; place-items: center; background: rgba(255,255,255,.09); }
+    .channel-icon svg { width: 26px; height: 26px; fill: white; }
+    .channel-card h3 { font: 800 1rem Manrope; }
+    .channel-card p { color: var(--muted); font-size: .72rem; }
+    .channel-arrow { margin-left: auto; color: var(--accent); font-size: 1.2rem; }
+
+    .gallery-grid { display: grid; grid-template-columns: 1.1fr .9fr 1fr; grid-template-rows: 250px 250px; gap: 15px; }
+    .gallery-item { border-radius: 18px; overflow: hidden; position: relative; background: #1c2028; }
+    .gallery-item:first-child { grid-row: span 2; }
+    .gallery-item:nth-child(4) { grid-column: span 2; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1), filter .5s; }
+    .gallery-item:hover img { transform: scale(1.08); filter: brightness(.75); }
+    .gallery-item::after { content: ""; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, #0009); pointer-events: none; }
+    .gallery-item span { position: absolute; z-index: 1; left: 18px; bottom: 16px; font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+
+    .contact-box { border: 1px solid rgba(215,255,63,.28); border-radius: 30px; padding: clamp(30px,6vw,75px); background: radial-gradient(circle at 90% 10%, rgba(215,255,63,.12), transparent 35%), #13161d; display: grid; grid-template-columns: 1fr .8fr; gap: 50px; align-items: center; }
+    .contact-box h2 { max-width: 650px; }
+    .contact-box p { color: var(--muted); margin: 22px 0 28px; max-width: 480px; }
+    .contact-details { display: grid; gap: 13px; }
+    .contact-line { border-bottom: 1px solid var(--line); padding: 15px 0; display: flex; gap: 13px; align-items: center; color: #e9e9ec; font-size: .9rem; }
+    .contact-line .mini { width: 35px; height: 35px; border-radius: 11px; display: grid; place-items: center; background: rgba(215,255,63,.12); color: var(--accent); }
+    .contact-line small { display: block; color: var(--muted); font-size: .67rem; text-transform: uppercase; letter-spacing: .12em; }
+    .contact-line a:hover { color: var(--accent); }
+
+    footer { padding: 35px 0; border-top: 1px solid var(--line); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 25px; }
+    .footer-copy { color: #777b84; font-size: .72rem; }
+    .footer-socials { display: flex; gap: 17px; color: #c7c9cf; font-size: .75rem; font-weight: 700; }
+    .footer-socials a:hover { color: var(--accent); }
+    .back-top { position: fixed; right: 22px; bottom: 22px; width: 45px; height: 45px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: #10120a; z-index: 50; opacity: 0; visibility: hidden; transform: translateY(10px); transition: .3s; font-size: 1.2rem; font-weight: 900; }
+    .back-top.show { opacity: 1; visibility: visible; transform: none; }
+
+    .reveal { opacity: 0; transform: translateY(35px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: .12s; } .delay-2 { transition-delay: .22s; } .delay-3 { transition-delay: .32s; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-13px) rotate(1deg); } }
+    @keyframes ticker { to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+    @media (max-width: 900px) {
+      .navlinks { gap: 17px; }
+      .hero-grid { gap: 20px; }
+      .hero-visual { min-height: 480px; }
+      .hero-photo-wrap { height: 455px; }
+      .about-grid { gap: 40px; }
+      .channels-grid { grid-template-columns: repeat(2,1fr); }
+      .contact-box { grid-template-columns: 1fr; gap: 25px; }
+    }
+    @media (max-width: 680px) {
+      .container { width: min(100% - 32px, var(--max)); }
+      .topbar { height: 70px; }
+      .nav-cta { display: none; }
+      .menu-toggle { display: block; }
+      .navlinks { display: none; position: absolute; top: 69px; left: 0; width: 100%; padding: 20px 25px 25px; background: rgba(9,10,13,.97); border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; gap: 18px; }
+      .navlinks.open { display: flex; }
+      .hero { min-height: auto; padding: 125px 0 65px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 25px; }
+      .hero h1 { font-size: clamp(4rem, 18vw, 6.7rem); }
+      .hero-copy > p { font-size: .94rem; }
+      .hero-meta { margin-top: 30px; flex-wrap: wrap; }
+      .hero-visual { min-height: 430px; }
+      .hero-photo-wrap { width: 78%; height: 410px; }
+      .hero-orbit { width: 90%; }
+      .floating-tag { right: 0; }
+      .scroll-cue { display: none; }
+      .section { padding: 78px 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 18px; }
+      .about-grid { grid-template-columns: 1fr; gap: 30px; }
+      .about-image { height: 430px; }
+      .music-grid { grid-template-columns: 1fr; }
+      .music-card { min-height: 220px; }
+      .channels-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 230px 180px 180px; }
+      .gallery-item:first-child { grid-row: span 2; }
+      .gallery-item:nth-child(4) { grid-column: span 2; }
+      .contact-box { padding: 28px 22px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" id="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="DJ Citie NTM home">
+        <img src="https://base44.app/api/apps/6aba2442d88feb02c65ff55e/files/mp/public/6aba2442d88feb02c65ff55e/b5dbbbf58_photo_portrait.png" alt="DJ Citie NTM portrait logo">
+        <span>DJ CITIE NTM<small>OFFICIAL WEBSITE</small></span>
+      </a>
+      <nav class="navlinks" id="navlinks" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#music">Music</a><a href="#channels">Channels</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-primary nav-cta" href="#music">Explore music ↗</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Eswatini • DJ • Producer</span>
+          <h1>DJ CITIE<span>NTM.</span></h1>
+          <p>Sound, movement and identity. Step into the world of DJ Citie NTM — discover the music, follow the journey and connect through the official channels.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#music">Discover the music <span>↗</span></a>
+            <a class="btn btn-ghost" href="https://www.youtube.com/@djcitientm" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+          </div>
+          <div class="hero-meta"><strong>DJ CITIE NTM</strong><span class="dot"></span><span>Based in Eswatini</span><span class="dot"></span><span>Official artist hub</span></div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-orbit"><i class="orbit-dot"></i></div>
+          <div class="hero-photo-wrap">
+            <img class="hero-photo" src="https://base44.app/api/apps/6aba2442d88feb02c65ff55e/files/mp/public/6aba2442d88feb02c65ff55e/b5dbbbf58_photo_portrait.png" alt="DJ Citie NTM in a dark studio portrait" fetchpriority="high">
+            <div class="photo-label"><strong>DJ CITIE NTM</strong><span>Feel the sound</span></div>
+          </div>
+          <div class="floating-tag"><b>ESWATINI 🇸🇿</b><small>Independent sound • Artist</small></div>
+        </div>
+      </div>
+      <div class="scroll-cue">Scroll to explore</div>
+    </section>
+
+    <div class="ticker" aria-label="DJ Citie NTM">
+      <div class="ticker-track">
+        <span>DJ CITIE NTM <i>✳</i> ESWATINI <i>✳</i> MUSIC & CULTURE <i>✳</i> SOUND IN MOTION <i>✳</i> DJ CITIE NTM <i>✳</i> ESWATINI <i>✳</i> MUSIC & CULTURE <i>✳</i> SOUND IN MOTION <i>✳</i></span>
+        <span>DJ CITIE NTM <i>✳</i> ESWATINI <i>✳</i> MUSIC & CULTURE <i>✳</i> SOUND IN MOTION <i>✳</i> DJ CITIE NTM <i>✳</i> ESWATINI <i>✳</i> MUSIC & CULTURE <i>✳</i> SOUND IN MOTION <i>✳</i></span>
+      </div>
+    </div>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-image reveal">
+          <img src="https://base44.app/api/apps/6aba2442d88feb02c65ff55e/files/mp/public/6aba2442d88feb02c65ff55e/c04fd94f3_photo_studio.png" alt="DJ Citie NTM in a green outfit" loading="lazy">
+          <div class="image-caption">The artist. The sound.</div>
+        </div>
+        <div class="about-copy reveal delay-1">
+          <span class="eyebrow">Get to know the name</span>
+          <h2>More than a sound.<br>A whole atmosphere.</h2>
+          <p>DJ Citie NTM is an Eswatini-based DJ and producer building a musical identity through releases, collaborations and a growing digital presence. This is the official destination to find the artist's music platforms, social channels, selected photographs and contact information.</p>
+          <p>Explore the platforms below to listen, watch, follow and stay connected. For bookings and professional enquiries, use the contact details on this page.</p>
+          <div class="stat-row">
+            <div class="stat"><strong>ESW</strong><span>Home country</span></div>
+            <div class="stat"><strong>DJ</strong><span>Artist</span></div>
+            <div class="stat"><strong>NTM</strong><span>Artist identity</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section music-section" id="music">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Listen everywhere</span><h2>Music platforms.</h2></div>
+          <p>Choose a platform to open DJ Citie's artist catalogue and discover available releases.</p>
+        </div>
+        <div class="music-grid">
+          <a class="music-card reveal" href="https://music.apple.com/us/artist/dj-citie/1684674731" target="_blank" rel="noopener" style="--glow:rgba(255,80,120,.18)">
+            <div class="platform-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.7 2.2c-.9.1-2 .7-2.6 1.4-.6.7-1.1 1.7-.9 2.7 1 .1 2-.5 2.7-1.3.7-.8 1.1-1.8.8-2.8ZM19.8 12.8c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.5 3.2 2.4 1.3-.1 1.8-.8 3.4-.8s2 .8 3.4.8c1.4 0 2.3-1.2 3.1-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-3.1-1.2-3.1-4.3Z"/></svg></div>
+            <div><h3>Apple Music</h3><p>Artist profile and releases</p><div class="card-link">Open artist profile <span>↗</span></div></div>
+          </a>
+          <a class="music-card reveal delay-1" href="https://www.beatport.com/artist/dj-citie/1437470" target="_blank" rel="noopener" style="--glow:rgba(0,220,160,.16)">
+            <div class="platform-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h18v18H3zM7 7v10h2V7zm4 0v10h2V7zm4 0v10h2V7z"/></svg></div>
+            <div><h3>Beatport</h3><p>Electronic music platform</p><div class="card-link">Open artist profile <span>↗</span></div></div>
+          </a>
+          <a class="music-card reveal delay-2" href="https://chartex.com/artist/dj-citie-1918910" target="_blank" rel="noopener" style="--glow:rgba(70,145,255,.18)">
+            <div class="platform-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h3V9H4zm6 0h3V4h-3zm6 0h3v-7h-3z"/></svg></div>
+            <div><h3>Chartex</h3><p>Artist data and music activity</p><div class="card-link">View artist profile <span>↗</span></div></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="channels">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Follow the journey</span><h2>Official channels.</h2></div>
+          <p>Follow DJ Citie NTM on social media for videos, updates, appearances and new content.</p>
+        </div>
+        <div class="channels-grid">
+          <a class="channel-card reveal" href="https://www.youtube.com/@djcitientm" target="_blank" rel="noopener">
+            <div class="channel-icon"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg></div>
+            <div><h3>YouTube</h3><p>@djcitientm</p></div><span class="channel-arrow">↗</span>
+          </a>
+          <a class="channel-card reveal delay-1" href="https://www.facebook.com/djcitieyc" target="_blank" rel="noopener">
+            <div class="channel-icon"><svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.3c0-3 1.8-4.7 4.5-4.7 1.3 0 2.6.2 2.6.2v2.9h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12Z"/></svg></div>
+            <div><h3>Facebook</h3><p>DJ Citie page</p></div><span class="channel-arrow">↗</span>
+          </a>
+          <a class="channel-card reveal delay-2" href="https://www.tiktok.com/@djcitie_inkundzebovu" target="_blank" rel="noopener">
+            <div class="channel-icon"><svg viewBox="0 0 24 24"><path d="M19.6 6.2a5.7 5.7 0 0 1-3.5-4.7V1h-4.1v15.1a3.4 3.4 0 1 1-2.9-3.4v-4.2a7.6 7.6 0 1 0 7 7.5V8.4a9.7 9.7 0 0 0 5.7 1.8V6.1a5.7 5.7 0 0 1-2.2.1Z"/></svg></div>
+            <div><h3>TikTok</h3><p>@djcitie_inkundzebovu</p></div><span class="channel-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Through the lens</span><h2>Artist gallery.</h2></div>
+          <p>A selection of portraits, collaborations and public appearances.</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item reveal"><img src="https://base44.app/api/apps/6aba2442d88feb02c65ff55e/files/mp/public/6aba2442d88feb02c65ff55e/02f915505_photo_duo.png" alt="Two men in denim and leather at a car park" loading="lazy"><span>Behind the scenes</span></div>
+          <div class="gallery-item reveal delay-1"><img src="https://base44.app/api/apps/6aba2442d88feb02c65ff55e/files/mp/public/6aba2442d88feb02c65ff55e/35e6e7028_photo_traditional.png" alt="DJ Citie in a white traditional outfit" loading="lazy"><span>Culture</span></div>
+          <div class="gallery-item reveal delay-2"><img src="https://base44.app/api/apps/6aba2442d88feb02c65ff55e/files/mp/public/6aba2442d88feb02c65ff55e/e5c66864e_photo_trio.png" alt="Three men in white traditional outfits" loading="lazy"><span>Collaboration</span></div>
+          <div class="gallery-item reveal delay-1"><img src="https://base44.app/api/apps/6aba2442d88feb02c65ff55e/files/mp/public/6aba2442d88feb02c65ff55e/36593f7da_photo_awards.png" alt="Group on the Eswatini Lifestyle Awards red carpet" loading="lazy"><span>Eswatini Lifestyle Awards</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-box reveal">
+          <div>
+            <span class="eyebrow">Bookings • Features • Enquiries</span>
+            <h2>Let's make something move.</h2>
+            <p>For bookings, collaborations, media requests and professional enquiries, get in touch through the contact details below.</p>
+            <a class="btn btn-primary" href="https://wa.me/26876064329" target="_blank" rel="noopener">Chat on WhatsApp ↗</a>
+          </div>
+          <div class="contact-details">
+            <div class="contact-line"><span class="mini">☎</span><div><small>Phone / WhatsApp</small><a href="tel:+26876064329">+268 7606 4329</a></div></div>
+            <div class="contact-line"><span class="mini">✉</span><div><small>Email</small><a href="mailto:djcitieyc@gmail.com">djcitieyc@gmail.com</a></div></div>
+            <div class="contact-line"><span class="mini">◎</span><div><small>Location</small><span>Eswatini</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="brand" href="#home"><img src="https://base44.app/api/apps/6aba2442d88feb02c65ff55e/files/mp/public/6aba2442d88feb02c65ff55e/b5dbbbf58_photo_portrait.png" alt=""><span>DJ CITIE NTM<small>OFFICIAL WEBSITE</small></span></a>
+      <div class="footer-copy">© <span id="year"></span> DJ Citie NTM. All rights reserved. Made in Eswatini 🇸🇿</div>
+      <div class="footer-socials"><a href="https://www.youtube.com/@djcitientm" target="_blank" rel="noopener">YouTube</a><a href="https://www.facebook.com/djcitieyc" target="_blank" rel="noopener">Facebook</a><a href="https://www.tiktok.com/@djcitie_inkundzebovu" target="_blank" rel="noopener">TikTok</a></div>
+    </div>
+  </footer>
+
+  <a href="#home" class="back-top" id="backTop" aria-label="Back to top">↑</a>
+
+  <script>
+    const topbar = document.getElementById('topbar');
+    const backTop = document.getElementById('backTop');
+    const menuToggle = document.getElementById('menuToggle');
+    const navlinks = document.getElementById('navlinks');
+
+    window.addEventListener('scroll', () => {
+      topbar.classList.toggle('scrolled', window.scrollY > 25);
+      backTop.classList.toggle('show', window.scrollY > 550);
+    }, { passive: true });
+
+    menuToggle.addEventListener('click', () => {
+      const open = navlinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.textContent = open ? '×' : '☰';
+    });
+    navlinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navlinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+    }));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>
